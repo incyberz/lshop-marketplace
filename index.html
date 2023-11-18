@@ -40,5 +40,24 @@
     <p class="purple">Untuk warna purple ini diatur pada internal-css</p>
     <p>Foto di atas dan di bawah ini diatur dengan external-CSS</p>
     <img src="img/user/3.jpg" alt="user3" class="profil" />
+
+    <!-- ========================================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ========================================= -->
+    <hr />
+    <h2>Javascript</h2>
+    Nama
+    <input type="text" id="nama" maxlength="20" />
+    <button onclick="halo()">Submit</button>
+    <script>
+      function halo() {
+        let nama = document.getElementById("nama").value;
+        if (nama.length >= 3) {
+          alert(`Halo ${nama}! Selamat belajar Javascript!`);
+        } else {
+          alert(`Silahkan ketik nama minimal 3 huruf!`);
+        }
+      }
+    </script>
   </body>
 </html>

@@ -1,6 +1,7 @@
 body{
   background: linear-gradient(#efe,#cfc);
   min-height: 100vh;
+  padding-bottom: 80px;
 }
 .profil{
   height:70px;
