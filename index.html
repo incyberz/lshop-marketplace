@@ -14,6 +14,12 @@
     <!-- memanggil external JS -->
     <script src="js/myjs1.js"></script>
 
+    <!-- CSS Framework Bootstrap -->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css" />
+
+    <!-- JS Framework JQuery -->
+    <script src="vendor/jquery/jquery-3.7.1.min.js"></script>
+
     <style>
       .purple {
         color: purple;
@@ -21,60 +27,116 @@
     </style>
   </head>
   <body>
-    <h1>Welcome to LShop</h1>
-    <p>The Best Fashion on earth!</p>
-    <img src="img/logo.png" alt="logo" height="100px" />
-    <img src="img/user/1.jpg" alt="user" class="profil" />
-    <hr />
-    <a href="https://google.com">Google</a> |
-    <a href="https://youtube.com">Youtube</a> |
-    <a href="page-2.html">Page 2</a> |
-    <br />
-    <br />
-    <table cellpadding="5" cellspacing="0" border="1">
-      <thead bgcolor="#aaf">
-        <th>No</th>
-        <th>NIM</th>
-        <th>NAMA</th>
-      </thead>
-      <tr>
-        <td>1</td>
-        <td>41200345</td>
-        <td>Iin Sholihin</td>
-      </tr>
-    </table>
-    <br />
-    <br />
-    <p style="color: blue">Warna biru ini menggunakan inline-CSS</p>
-    <p class="purple">Untuk warna purple ini diatur pada internal-css</p>
-    <p>Foto di atas dan di bawah ini diatur dengan external-CSS</p>
-    <img src="img/user/3.jpg" alt="user3" class="profil" />
+    <div class="container">
+      <h1>Welcome to LShop</h1>
+      <p>The Best Fashion on earth!</p>
+      <img src="img/logo.png" alt="logo" height="100px" />
+      <img src="img/user/1.jpg" alt="user" class="profil" />
+      <hr />
+      <a href="https://google.com">Google</a> |
+      <a href="https://youtube.com">Youtube</a> |
+      <a href="page-2.html">Page 2</a> |
+      <br />
+      <br />
+      <table cellpadding="5" cellspacing="0" border="1">
+        <thead bgcolor="#aaf">
+          <th>No</th>
+          <th>NIM</th>
+          <th>NAMA</th>
+        </thead>
+        <tr>
+          <td>1</td>
+          <td>41200345</td>
+          <td>Iin Sholihin</td>
+        </tr>
+      </table>
+      <br />
+      <br />
+      <p style="color: blue">Warna biru ini menggunakan inline-CSS</p>
+      <p class="purple">Untuk warna purple ini diatur pada internal-css</p>
+      <p>Foto di atas dan di bawah ini diatur dengan external-CSS</p>
+      <img src="img/user/3.jpg" alt="user3" class="profil" />
 
-    <!-- ========================================= -->
-    <!-- JAVASCRIPT -->
-    <!-- ========================================= -->
-    <hr />
-    <h2>Javascript Inline</h2>
-    <button onclick="alert('Halo Javascript!!')">Click me!</button>
-    <hr />
-    <h2>Javascript Internal</h2>
-    <div>Nama kamu:</div>
-    <input type="text" id="nama" maxlength="20" />
-    <button onclick="halo()">Submit</button>
-    <script>
-      function halo() {
-        let nama = document.getElementById("nama").value;
-        if (nama.length >= 3) {
-          alert(`Halo ${nama}! Selamat belajar Javascript!`);
-        } else {
-          alert(`Silahkan ketik nama minimal 3 huruf!`);
+      <!-- ========================================= -->
+      <!-- JAVASCRIPT -->
+      <!-- ========================================= -->
+      <hr />
+      <h2>Javascript Inline</h2>
+      <button onclick="alert('Halo Javascript!!')">Click me!</button>
+      <hr />
+      <h2>Javascript Internal</h2>
+      <div>Nama kamu:</div>
+      <input type="text" id="nama" maxlength="20" />
+      <button onclick="halo()">Submit</button>
+      <script>
+        function halo() {
+          let nama = document.getElementById("nama").value;
+          if (nama.length >= 3) {
+            alert(`Halo ${nama}! Selamat belajar Javascript!`);
+          } else {
+            alert(`Silahkan ketik nama minimal 3 huruf!`);
+          }
         }
-      }
-    </script>
+      </script>
 
-    <hr />
-    <h2>Javascript External</h2>
-    <button onclick="tampilTanggal()">Tampilkan tanggal</button>
-    <div id="tanggal"></div>
+      <hr />
+      <h2>Javascript External</h2>
+      <button onclick="tampilTanggal()">Tampilkan tanggal</button>
+      <div id="tanggal"></div>
+
+      <!-- ========================================= -->
+      <!-- WEB FRAMEWORK | BOOTSTRAP -->
+      <!-- ========================================= -->
+      <hr />
+      <h2>Bootstrap CSS</h2>
+      <input class="form-control" type="text" placeholder="Bootstrap Input" />
+      <button class="btn btn-primary w-100 mt-2">
+        Bootstrap Primary Button
+      </button>
+      <button class="btn btn-success w-100 mt-2">Success Button</button>
+      <div class="card mt-4" id="card1">
+        <div class="card-body">
+          <div class="card-title">Bootstrap Card</div>
+          <div class="card-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione nam
+            debitis voluptas facere consectetur, natus laudantium id. Reiciendis
+            quia eaque aperiam beatae? Quisquam incidunt, qui voluptatibus
+            veritatis adipisci commodi corporis.
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================= -->
+      <!-- JS FRAMEWORK | JQUERY -->
+      <!-- ========================================= -->
+      <h2 class="mt-4">JQuery JS</h2>
+      <button class="btn btn-success w-100 btn-sm mt-1" id="btnFadeIn">
+        Fade In
+      </button>
+      <button class="btn btn-info w-100 btn-sm mt-1" id="btnFadeOut">
+        Fade Out
+      </button>
+      <button class="btn btn-primary w-100 btn-sm mt-1" id="btnSlideToggle">
+        Slide Toggle
+      </button>
+
+      <textarea class="form-control mt-2" id="textarea1" rows="6">
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus praesentium facere fugiat. Qui consectetur error ratione, veritatis in inventore dicta voluptatibus nisi odio rerum commodi, ipsa dolorem ducimus debitis cum?</textarea
+      >
+
+      <script>
+        $(function () {
+          $("#btnFadeIn").click(function () {
+            $("#textarea1").fadeIn();
+          });
+          $("#btnFadeOut").click(function () {
+            $("#textarea1").fadeOut();
+          });
+          $("#btnSlideToggle").click(function () {
+            $("#textarea1").slideToggle();
+          });
+        });
+      </script>
+    </div>
   </body>
 </html>
