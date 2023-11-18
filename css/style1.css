@@ -18,3 +18,6 @@ body{
   transform:scale(1.2)
 }
 
+.input-angka{
+  max-width: 80px
+}
