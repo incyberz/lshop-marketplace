@@ -74,3 +74,28 @@ main {
   /* border: solid 1px red; */
 }
 
+/* ============================================ */
+/* RULE UNTUK SECTION */
+/* ============================================ */
+.section {
+  padding: 60px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.section-bg {
+  background-color: #f0f9ff;
+}
+
+.section-title {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.section-title h2 {
+  font-size: 26px;
+  font-weight: bold;
+  text-transform: uppercase;
+  position: relative;
+  color: #222222;
+}
