@@ -99,3 +99,20 @@ main {
   position: relative;
   color: #222222;
 }
+
+
+
+
+/* ============================================ */
+/* FITUR ADMIN */
+/* ============================================ */
+.fitur-admin{
+  border:solid 1px red;
+  border-radius: 5px;
+  color:rgb(54, 0, 0);
+  background:linear-gradient(rgb(255, 245, 245),rgb(255, 222, 222))
+}
+
+.fitur-admin h3{
+  color: darkred
+}
