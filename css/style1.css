@@ -1,0 +1,19 @@
+body{
+  background: linear-gradient(#efe,#cfc);
+  min-height: 100vh;
+}
+.profil{
+  height:70px;
+  width: 70px;
+  object-fit: cover;
+  border: solid 3px white;
+  border-radius: 50%;
+  box-shadow: 0 0 8px gray;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.profil:hover{
+  transform:scale(1.2)
+}
+
