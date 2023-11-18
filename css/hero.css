@@ -1,0 +1,34 @@
+#hero {
+  height: 100vh;
+  border: solid 1px red;
+  background: url("../img/bg/fashion-bg-1.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+
+.judul-hero {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding-top: 30px;
+  text-align: center;
+  color: #ffffff;  
+  text-align: center;
+  text-shadow: 0 0 3px black;
+  /* border: solid 1px blue; */
+}
+
+.img-hero{
+  max-height: 85vh;
+  max-width: 100vw;
+  opacity: 75%;
+}
+
+.blok-img-hero{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  /* border: solid 1px red; */
+}
