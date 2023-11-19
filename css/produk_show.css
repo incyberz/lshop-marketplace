@@ -1,0 +1,46 @@
+.produk_show{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px
+}
+
+.item_produk{
+  position: relative;
+  width: 200px;
+  height: 300px;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  border: solid 1px #ccc;
+}
+
+.item_produk-p{
+  border: solid 1px #aaf;
+}
+
+.item_produk-w{
+  border: solid 1px #faf;
+}
+
+.btn_keranjang{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.img_produk{
+  height: 200px;
+  object-fit: cover;
+}
+
+.nama_produk{
+  font-size: 14px;
+  color: #666;
+  font-weight: 400;
+}
+
+@media (max-width: 500px) {
+  .item_produk{
+    width: 100%;
+  }
+}

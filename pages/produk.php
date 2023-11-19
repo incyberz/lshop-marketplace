@@ -13,11 +13,7 @@ $image_produk = '';
   </div>
 
   <!-- PRODUK SHOW FOR PUBLIK -->
-  <div class="mb-4 wadah">
-    <div>Tampil Produk 01</div>
-    <div>Tampil Produk 02</div>
-    <div>Tampil Produk 03</div>
-  </div>
+  <?php include 'produk_show.php'; ?>
 
   <!-- ADMIN ONLY -->
   <div class="p-2 fitur-admin">
