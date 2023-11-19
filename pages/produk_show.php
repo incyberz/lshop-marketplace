@@ -65,6 +65,8 @@ echo !$jumlah_produk ? $item_produk : "<div class='produk_show wadah'>$item_prod
         let y = confirm('Yakin untuk menghapus produk ini?');
         if(!y) return;
         link_ajax = `ajax/hapus_produk.php?id_produk=${id_produk}`;
+      }else if(aksi=='edit_produk'){
+        console.log('handler edit produk');
       }
 
       $.ajax({
