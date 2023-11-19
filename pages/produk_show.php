@@ -67,6 +67,7 @@ echo !$jumlah_produk ? $item_produk : "<div class='produk_show wadah'>$item_prod
         link_ajax = `ajax/hapus_produk.php?id_produk=${id_produk}`;
       }
 
+      // execute AJAX JQuery
       $.ajax({
         url:link_ajax,
         success: function(hasil){
