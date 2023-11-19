@@ -1,3 +1,11 @@
+<?php
+// inisialisasi variabel input
+$nama_produk = '';
+$harga = 0;
+$gender = '';
+$image_produk = '';
+
+?>
 <section id="produk" class="section">
   <div class="section-title">
     <h2>Produk kami</h2>
@@ -8,17 +16,19 @@
   <div class="mb-4">Tampil Produk 3</div>
   <div class="p-2 fitur-admin">
     <h3>Fitur Admin | Tambah Produk</h3>
+    <?php if($_POST) include 'produk_handler.php'; ?>
     <form method="post">
       <div class="form-group mb-2">
-        <label for="namaProduk">Nama Produk</label>
+        <label for="nama_produk">Nama Produk</label>
         <input
           type="text"
-          id="namaProduk"
-          name="namaProduk"
+          id="nama_produk"
+          name="nama_produk"
           class="form-control"
           required
           minlength="10"
           maxlength="30"
+          value = "<?=$nama_produk?>"
         />
         <div class="kecil miring abu mt-1" id="namaKet">
           masukan 10 s.d 30 huruf atau angka tanpa special karakter
@@ -29,7 +39,7 @@
               "<img src='img/icons/check.png' height=20px>";
             let namaKet =
               "masukan 10 s.d 30 huruf atau angka tanpa special karakter";
-            $("#namaProduk").keyup(function () {
+            $("#nama_produk").keyup(function () {
               let val = $(this).val();
               // console.log(val);
               if (val.length >= 10) {
@@ -50,7 +60,8 @@
           class="form-control"
           min="1000"
           max="999999"
-          required
+          required 
+          value="<?=$harga?>"
         />
       </div>
       <div class="form-group mb-2">
@@ -59,36 +70,39 @@
           <input
             type="radio"
             name="gender"
-            id="genderL"
-            value="L"
+            id="genderP"
+            value="P"
             required
+            <?php echo $gender=='P' ? 'checked' : ''; ?>
           />
-          <label for="genderL">Pria</label>
+          <label for="genderP">Pria</label>
         </div>
         <div>
           <input
             type="radio"
             name="gender"
-            id="genderP"
-            value="P"
+            id="genderW"
+            value="W"
             required
+            <?php echo $gender=='W' ? 'checked' : ''; ?>
           />
-          <label for="genderP">Wanita</label>
+          <label for="genderW">Wanita</label>
         </div>
       </div>
       <div class="form-group mb-2">
-        <label for="imageProduk">Image Produk</label>
+        <label for="image_produk">Image Produk</label>
+        <?=$image_produk ?>
         <input
           type="file"
-          id="imageProduk"
-          name="imageProduk"
+          id="image_produk"
+          name="image_produk"
           class="form-control"
           required
           accept=".jpg"
         />
       </div>
       <div class="form-group">
-        <button class="btn btn-primary w-100">Simpan</button>
+        <button class="btn btn-primary w-100" name=btn_simpan>Simpan</button>
       </div>
     </form>
   </div>
