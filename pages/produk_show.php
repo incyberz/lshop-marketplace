@@ -31,4 +31,5 @@ if($jumlah_produk){
   }
 }
 
+// jika ada produk maka tampilkan
 echo !$jumlah_produk ? $item_produk : "<div class='produk_show wadah'>$item_produk</div>";
