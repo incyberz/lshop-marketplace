@@ -24,7 +24,7 @@
     text-decoration: none;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 875px) {
     #header nav ul{
       display: none;
       flex-direction: column;

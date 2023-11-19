@@ -21,6 +21,7 @@ if($jumlah_produk){
     $edit = "<img class='zoom pointer manage_produk' id='edit_produk__$id' src='img/icons/edit.png' height=20px>";
     $hapus = "<img class='zoom pointer manage_produk' id='hapus_produk__$id' src='img/icons/hapus.png' height=20px>";
     $edit_hapus = $id_role==2 ? "<div class='mb-1'>$edit | $hapus</div>" : '';
+    $keranjang = $id_role==2 ? '' : "<button class='btn btn-success btn-sm w-100 btn_keranjang'>Tambah ke Keranjang</button>";
 
     $item_produk .= "
       <div class='item_produk item_produk-$gender' id='item_produk__$id'>
@@ -33,7 +34,7 @@ if($jumlah_produk){
             <span id=harga__$id>$harga</span>
           </span>
         </div>
-        <button class='btn btn-success btn-sm w-100 btn_keranjang'>Tambah ke Keranjang</button>
+        $keranjang
       </div>
     ";
   }
