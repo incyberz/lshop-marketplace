@@ -53,3 +53,59 @@ if(intval($angka)==0){
   $gg = $angka % 2 == 0 ? 'genap' : 'ganjil';
   echo "angka yang Anda input termasuk $gg";
 }
+
+
+# ===============================================
+# LOOPING FOR
+# ===============================================
+echo '<hr>Looping PHP | For <br>';
+
+echo '<br>Deret 10 bilangan asli dengan looping for';
+for ($i=1; $i <= 10 ; $i++) { 
+  echo "<br>$i";
+}
+
+echo '<br><br>Deret 10 bilangan random dengan looping for';
+for ($i=1; $i <= 10 ; $i++) { 
+  $random = rand(1,99);
+  echo "<br>$random";
+}
+
+echo '<br><br>Deret Fibbonaci dengan looping for';
+$a = 1;
+$b = 1;
+$c = 0;
+echo "<br>$a";
+echo "<br>$b";
+for ($i=1; $i <= 10 ; $i++) {
+  $c = $a + $b; 
+  echo "<br>$c";
+  $a = $b;
+  $b = $c;
+}
+
+
+
+# ===============================================
+# LOOPING WHILE FOR ARRAY
+# ===============================================
+echo '<hr>Looping PHP | Foreach <br>';
+$arr_nama_hari = ['Ahad', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+
+echo "<br>Memunculkan isi array nama_hari dengan perintah var_dump()";
+echo '<pre>';
+echo var_dump($arr_nama_hari);
+echo '</pre>';
+
+$weekday = date('w');
+
+echo "<br>Output foreach array nama_hari :";
+foreach ($arr_nama_hari as $key => $hari) {
+  $hari_ini = $weekday==$key ? '<-- hari ini' : '';
+  $style_hari_ini = $weekday==$key ? 'color:blue; font-weight:bold' : '';
+  echo "<div style='$style_hari_ini'>~ hari $hari $hari_ini</div>";
+}
+
+
+
+
