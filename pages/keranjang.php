@@ -14,7 +14,7 @@
   <div>
     <?php
     $keranjang = '';
-    $s = "SELECT *  
+    $s = "SELECT a.*,b.nama_produk, b.harga    
     FROM tb_keranjang a 
     JOIN tb_produk b ON a.id_produk=b.id 
     WHERE id_user='$id_user' 
@@ -58,7 +58,7 @@
           $keranjang
           <hr>
           <div class=hidden>
-            $d[nama_produk] $hapus 
+            <input name=total_hidden id=total_hidden >
           </div>
           <div class='kanan mb-2 tebal'>
             Total Rp : <span id=total>000</span>
@@ -107,6 +107,7 @@
         total += parseInt(class_jumlah[i].innerHTML);
       }
       $('#total').text(total);
+      $('#total_hidden').val(total);
 
     });
     $('.qty').change();
