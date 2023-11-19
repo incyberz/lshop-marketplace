@@ -39,10 +39,10 @@ include 'conn.php';
 # USER DATA IF LOGIN
 # ================================================
 include 'data_user.php';
-echo '<pre>';
-var_dump($_SESSION);
-echo '</pre>';
-echo "<hr>Anda login sebagai $nama_user dg id-role : $id_role<hr>";
+// echo '<pre>';
+// var_dump($_SESSION);
+// echo '</pre>';
+// echo "<hr>Anda login sebagai $nama_user dg id-role : $id_role<hr>";
 
 
 # ================================================

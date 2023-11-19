@@ -1,66 +1,64 @@
 <link rel="stylesheet" href="css/produk_show.css">
-<?php
-include 'include/insho_functions.php';
-$item_produk = div_alert('danger', "Belum ada data produk.");;
 
-$s = "SELECT * FROM tb_produk";
-$q = mysqli_query($cn,$s) or die(mysqli_error($cn));
-$jumlah_produk = mysqli_num_rows($q);
-
-if($jumlah_produk){
-  $item_produk = '';
-  while($d=mysqli_fetch_assoc($q)){
-    $id = $d['id'];
-    $gender = strtolower($d['gender']);
-
-    if($gender=='p') $path_gender = 'pria';
-    if($gender=='w') $path_gender = 'wanita';
-
-    $harga = number_format($d['harga'],0);
-
-    $edit = "<img class='zoom pointer manage_produk' id='edit_produk__$id' src='img/icons/edit.png' height=20px>";
-    $hapus = "<img class='zoom pointer manage_produk' id='hapus_produk__$id' src='img/icons/hapus.png' height=20px>";
-    $edit_hapus = $id_role==2 ? "<div class='mb-1'>$edit | $hapus</div>" : '';
-    $keranjang = $id_role==2 ? '' : "<button class='btn btn-success btn-sm w-100 btn_keranjang'>Tambah ke Keranjang</button>";
-
-    $item_produk .= "
-      <div class='item_produk item_produk-$gender' id='item_produk__$id'>
-        $edit_hapus
-        <img src='img/pakaian/$path_gender/$d[img_produk]' class='img-thumbnail img_produk'>
-        <div>
-          <span class=nama_produk id=nama_produk__$id>$d[nama_produk]</span> ~ 
-          <span class=harga_rp>
-            Rp
-            <span id=harga__$id>$harga</span>
-          </span>
+<!-- ============================================== -->
+<!-- PRODUK FILTER UI-->
+<!-- ============================================== -->
+<div class="wadah">
+  <div class="row">
+    <div class="col-lg-2">
+      <div class='kecil abu'>Apa yang Anda cari?</div>
+    </div>
+    <div class="col-lg-5">
+      <input type="text" class="flex-1 form-control input-sm" id=keyword maxlength=20>
+    </div>
+    <div class="col-lg-5">
+      <div class="row">
+        <div class="col-lg-5 kanan">
+          Order by:
         </div>
-        $keranjang
+        <div class="col-lg-7">
+          <select id="order_by" class="form-control">
+            <option value="date_created">Model Terbaru</option>
+            <option value="date_created desc">Model Classic</option>
+            <option value="harga">Harga Terendah</option>
+            <option value="harga desc">Harga Tertinggi</option>
+          </select>
+        </div>
       </div>
-    ";
-  }
-}
+    </div>
+  </div>
+</div>
 
-echo !$jumlah_produk ? $item_produk : "<div class='produk_show wadah'>$item_produk</div>";
-
-
-
-
-
-
-
-
-
-
-
-
-?><script>
+<div id="hasil_pencarian"></div>
+<script>
   $(function(){
     let link_ajax = '';
     let id_produk = '';
     let nama_produk = '';
     let harga = '';
 
-    $('.manage_produk').click(function(){
+    $('#keyword').keyup(function(){
+      if($(this).val().length > 2){
+        $('#order_by').change();
+      }
+    })
+
+    $('#order_by').change(function(){
+      let keyword = $('#keyword').val();
+      let order_by = $('#order_by').val();
+
+      link_ajax = `ajax/fetch_produk.php?keyword=${keyword}&order_by=${order_by}`;
+      $.ajax({
+        url:link_ajax,
+        success:function(hasil){
+          $('#hasil_pencarian').html(hasil);
+        }
+      })
+    })
+
+    $('#order_by').change();
+
+    $(document).on("click",".manage_produk",function(){
       let tid = $(this).prop('id');
       let rid = tid.split('__');
       let aksi = rid[0];
