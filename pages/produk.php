@@ -17,7 +17,7 @@ $image_produk = '';
   <div class="p-2 fitur-admin">
     <h3>Fitur Admin | Tambah Produk</h3>
     <?php if($_POST) include 'produk_handler.php'; ?>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
       <div class="form-group mb-2">
         <label for="nama_produk">Nama Produk</label>
         <input
