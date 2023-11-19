@@ -9,11 +9,17 @@ $image_produk = '';
 <section id="produk" class="section">
   <div class="section-title">
     <h2>Produk kami</h2>
-    <p>Sub Judul</p>
+    <p>The Best Produk Fashion on Earth!</p>
   </div>
-  <div class="mb-4">Tampil Produk 1</div>
-  <div class="mb-4">Tampil Produk 2</div>
-  <div class="mb-4">Tampil Produk 3</div>
+
+  <!-- PRODUK SHOW FOR PUBLIK -->
+  <div class="mb-4 wadah">
+    <div>Tampil Produk 01</div>
+    <div>Tampil Produk 02</div>
+    <div>Tampil Produk 03</div>
+  </div>
+
+  <!-- ADMIN ONLY -->
   <div class="p-2 fitur-admin">
     <h3>Fitur Admin | Tambah Produk</h3>
     <?php if($_POST) include 'produk_handler.php'; ?>
