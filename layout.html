@@ -10,6 +10,7 @@
 
     <!-- memanggil external CSS -->
     <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/simpelindo.css" />
 
     <!-- memanggil external JS -->
 
@@ -66,9 +67,29 @@
                   name="namaProduk"
                   class="form-control"
                   required
-                  minlength="3"
+                  minlength="10"
                   maxlength="30"
                 />
+                <div class="kecil miring abu mt-1" id="namaKet">
+                  masukan 10 s.d 30 huruf atau angka tanpa special karakter
+                </div>
+                <script>
+                  $(function () {
+                    let imgCheck =
+                      "<img src='img/icons/check.png' height=20px>";
+                    let namaKet =
+                      "masukan 10 s.d 30 huruf atau angka tanpa special karakter";
+                    $("#namaProduk").keyup(function () {
+                      let val = $(this).val();
+                      // console.log(val);
+                      if (val.length >= 10) {
+                        $("#namaKet").html(imgCheck);
+                      } else {
+                        $("#namaKet").text(namaKet);
+                      }
+                    });
+                  });
+                </script>
               </div>
               <div class="form-group mb-2">
                 <label for="harga">Harga</label>
