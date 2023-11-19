@@ -16,10 +16,12 @@
 
 .item_produk-p{
   border: solid 1px #aaf;
+  background: linear-gradient(#fff,#ccf);
 }
 
 .item_produk-w{
   border: solid 1px #faf;
+  background: linear-gradient(#fff,#fcf);
 }
 
 .btn_keranjang{

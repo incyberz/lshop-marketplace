@@ -12,7 +12,7 @@ if ($cn -> connect_errno) {
   echo "Error Konfigurasi# Tidak dapat terhubung ke MySQL Server :: $db_name";
   exit();
 }else{
-  echo "Koneksi ke MySQL Server berhasil. db-name = $db_name";
+  // echo "Koneksi ke MySQL Server berhasil. db-name = $db_name";
 }
 
 date_default_timezone_set("Asia/Jakarta");
