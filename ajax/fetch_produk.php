@@ -6,13 +6,20 @@ session_start();
 $keyword = $_GET['keyword'] ?? '';
 $order_by = $_GET['order_by'] ?? 'rand()';
 
-$username = $_SESSION['lshop_username'];
+$id_user = '';
+$id_role = 0;
+$username = $_SESSION['lshop_username'] ?? '';
 include '../include/insho_functions.php';
 include '../conn.php';
 include '../data_user.php';
 $item_produk = div_alert('danger', "Produk tidak ditemukan.");;
 
-$s = "SELECT * FROM tb_produk WHERE nama_produk LIKE '%$keyword%' ORDER BY  $order_by LIMIT 10 ";
+$s = "SELECT a.*,
+(SELECT COUNT(1) FROM tb_keranjang WHERE id_user='$id_user' AND id_produk=a.id) sudah_di_keranjang 
+FROM tb_produk a 
+WHERE a.nama_produk LIKE '%$keyword%' 
+ORDER BY  $order_by 
+LIMIT 10 ";
 // echo $s;
 $q = mysqli_query($cn,$s) or die(mysqli_error($cn));
 $jumlah_produk = mysqli_num_rows($q);
@@ -31,7 +38,13 @@ if($jumlah_produk){
     $edit = "<img class='zoom pointer manage_produk' id='edit_produk__$id' src='img/icons/edit.png' height=20px>";
     $hapus = "<img class='zoom pointer manage_produk' id='hapus_produk__$id' src='img/icons/hapus.png' height=20px>";
     $edit_hapus = $id_role==2 ? "<div class='mb-1'>$edit | $hapus</div>" : '';
-    $keranjang = $id_role==2 ? '' : "<button class='btn btn-success btn-sm w-100 btn_keranjang'>Tambah ke Keranjang</button>";
+
+    $caption = $d['sudah_di_keranjang'] ? 'Keluarkan dari Keranjang' : 'Tambah ke Keranjang';
+    $success = $d['sudah_di_keranjang'] ? 'secondary' : 'success';
+
+    $btn_keranjang = $username=='' ? "<a href='?login' class='btn btn-success btn-sm w-100' >$caption</a>" : "<button class='btn btn-$success btn-sm w-100 btn_keranjang' id=btn_keranjang__$id>$caption</button>";
+
+    $keranjang = $id_role==2 ? '' : $btn_keranjang;
 
     $item_produk .= "
       <div class='item_produk item_produk-$gender' id='item_produk__$id'>

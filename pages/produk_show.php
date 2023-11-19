@@ -3,6 +3,7 @@
 <!-- ============================================== -->
 <!-- PRODUK FILTER UI-->
 <!-- ============================================== -->
+<div id="id_user" class="hidden"><?=$id_user?></div>
 <div class="wadah">
   <div class="row">
     <div class="col-lg-2">
@@ -13,7 +14,7 @@
     </div>
     <div class="col-lg-5">
       <div class="row">
-        <div class="col-lg-5 kanan">
+        <div class="col-lg-5 tengah">
           Order by:
         </div>
         <div class="col-lg-7">
@@ -36,6 +37,7 @@
     let id_produk = '';
     let nama_produk = '';
     let harga = '';
+    let id_user = $('#id_user').text();
 
     $('#keyword').keyup(function(){
       if($(this).val().length > 2){
@@ -57,6 +59,43 @@
     })
 
     $('#order_by').change();
+
+    $(document).on("click",".btn_keranjang",function(){
+      let tid = $(this).prop('id');
+      let rid = tid.split('__');
+      let aksi = rid[0];
+      let id_produk = rid[1];
+      let keluarkan = 'Keluarkan dari Keranjang';
+
+      let mode = $(this).text() == keluarkan ? 'drop' : 'add';
+
+      link_ajax = `ajax/tambah_item_keranjang.php?id_produk=${id_produk}&id_user=${id_user}&mode=${mode}`;
+      $.ajax({
+        url:link_ajax,
+        success:function(a){
+          if(a.trim()=='sukses'){
+            // $('#'+tid).prop('disabled',true);
+            if($('#'+tid).text()==keluarkan){
+              $('#'+tid).addClass('btn-success');
+              $('#'+tid).removeClass('btn-secondary');
+              $('#'+tid).text('Tambah ke Keranjang');
+              $('#jumlah_item_keranjang').text(parseInt($('#jumlah_item_keranjang').text())-1);
+            }else{
+              $('#'+tid).removeClass('btn-success');
+              $('#'+tid).addClass('btn-secondary');
+              $('#'+tid).text(keluarkan);
+              $('#jumlah_item_keranjang').text(parseInt($('#jumlah_item_keranjang').text())+1);
+            }
+          }else{
+            alert('Terjadi kesalahan pada tambah keranjang');
+            console.log(a);
+          }
+        }
+      })
+
+      
+    })
+
 
     $(document).on("click",".manage_produk",function(){
       let tid = $(this).prop('id');

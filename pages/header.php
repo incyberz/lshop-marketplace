@@ -24,6 +24,10 @@
     text-decoration: none;
   }
 
+  .badge {
+    background: darkblue
+  }
+
   @media (max-width: 875px) {
     #header nav ul{
       display: none;
@@ -63,13 +67,15 @@
     <ul id='ul-nav'>
       <li><a href="?">Home</a></li>
       <li><a href="?produk">Produk</a></li>
-      <li><a href="?keranjang">Keranjang</a></li>
-      <li><a href="?toko_kami">Toko Kami</a></li>
+      <li><a href="?keranjang">Keranjang <span class="badge" id=jumlah_item_keranjang><?=$jumlah_item_keranjang?></span></a></li>
       <?php
+      echo $is_login ? "<li><a href='?user_profile'>$username</a></li>" : '';
+
       $link_login = "<li><a href='?login'>Login</a></li>"; 
       $link_logout = "<li><a href='?logout'>Logout</a></li>"; 
       echo $is_login ? $link_logout : $link_login;
       ?>
+      <li><a href="?toko_kami">Toko Kami</a></li>
     </ul>
     <div id="tombol-mobile">
       <hr>

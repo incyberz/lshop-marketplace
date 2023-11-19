@@ -130,3 +130,13 @@ section{
 .fitur-admin h3{
   color: darkred
 }
+
+
+
+/* ============================================ */
+/* BLOK LOGIN / REGISTER */
+/* ============================================ */
+#blok_login,#blok_register {
+  max-width:500px;
+  margin:auto;
+}

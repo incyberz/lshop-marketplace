@@ -1,55 +1,111 @@
 /* ================================================ */
 /* DEBUG */
 /* ================================================ */
-.hilang{display:none}
-.debug{
-  background:rgb(255, 255, 0); 
-  font-family: consolas; 
-  font-size: small; 
+.hidden, .hideit, .sembunyi {
+  display: none;
+}
+.debug {
+  background: rgb(255, 255, 0);
+  font-family: consolas;
+  font-size: small;
   margin: 10px 0;
 }
 
 /* ================================================ */
 /* COLORING */
 /* ================================================ */
-.biru,.blue{color:blue}
-.merah,.red{color:red}
-.hijau,.green{color:green}
-.kuning,.yellow{color:orange}
-.ungu,.purple{color:purple}
-.abu,.gray{color:gray}
-.darkblue{color:darkblue}
-.darkred{color:darkred}
-.abutua {color: rgb(67, 67, 67);}
-
+.biru,
+.blue {
+  color: blue;
+}
+.merah,
+.red {
+  color: red;
+}
+.hijau,
+.green {
+  color: green;
+}
+.kuning,
+.yellow {
+  color: orange;
+}
+.ungu,
+.purple {
+  color: purple;
+}
+.abu,
+.gray {
+  color: gray;
+}
+.darkblue {
+  color: darkblue;
+}
+.darkred {
+  color: darkred;
+}
+.abutua {
+  color: rgb(67, 67, 67);
+}
 
 /* ================================================ */
 /* BACKGROUND */
 /* ================================================ */
-.gradasi-biru{background:linear-gradient(#eef,#ccf)}
-.gradasi-toska{background:linear-gradient(#eff,#cff)}
-.gradasi-hijau{background:linear-gradient(#efe,#cfc)}
-.gradasi-merah{background:linear-gradient(#fee,#fcc)}
-.gradasi-kuning{background:linear-gradient(#ffe,#ffc)}
-.gradasi-pink{background:linear-gradient(#fdf,#faf)}
-.gradasi-tulang{background:linear-gradient(#ffe,rgb(213, 234, 233))}
-.bg-white,.latar-putih{background: white;}
+.gradasi-biru {
+  background: linear-gradient(#eef, #ccf);
+}
+.gradasi-toska {
+  background: linear-gradient(#eff, #cff);
+}
+.gradasi-hijau {
+  background: linear-gradient(#efe, #cfc);
+}
+.gradasi-merah {
+  background: linear-gradient(#fee, #fcc);
+}
+.gradasi-kuning {
+  background: linear-gradient(#ffe, #ffc);
+}
+.gradasi-pink {
+  background: linear-gradient(#fdf, #faf);
+}
+.gradasi-tulang {
+  background: linear-gradient(#ffe, rgb(213, 234, 233));
+}
+.bg-white,
+.latar-putih {
+  background: white;
+}
 
 /* ================================================ */
 /* TEXT-STYLING */
 /* ================================================ */
-.tebal{font-weight:bold}
-.kecil{font-size:small}
-.consolas {font-family:consolas}
-.upper {text-transform: uppercase}
-.lower {text-transform: lowercase}
-.proper {text-transform: capitalize}
-.miring {font-style: italic}
+.tebal {
+  font-weight: bold;
+}
+.kecil {
+  font-size: small;
+}
+.consolas {
+  font-family: consolas;
+}
+.upper {
+  text-transform: uppercase;
+}
+.lower {
+  text-transform: lowercase;
+}
+.proper {
+  text-transform: capitalize;
+}
+.miring {
+  font-style: italic;
+}
 
 /* ================================================ */
 /* BOX & NAVIGATION */
 /* ================================================ */
-.wadah{
+.wadah {
   border: solid 1px #ccc;
   border-radius: 10px;
   padding: 12px;
@@ -59,23 +115,40 @@
 /* ================================================ */
 /* ANIMATED */
 /* ================================================ */
-.pointer {cursor: pointer;}
-.zoom, .img_zoom{transition:.2s}
-.zoom:hover, .img_zoom:hover{transform:scale(1.2); font-size:1.5em}
+.pointer {
+  cursor: pointer;
+}
+.zoom,
+.img_zoom {
+  transition: 0.2s;
+}
+.zoom:hover,
+.img_zoom:hover {
+  transform: scale(1.2);
+  font-size: 1.5em;
+}
 
 /* ================================================ */
 /* ALIGNMENT */
 /* ================================================ */
-.kiri, .left {text-align: left}
-.kanan, .right {text-align: right}
-.tengah, .center {text-align: center}
-
+.kiri,
+.left {
+  text-align: left;
+}
+.kanan,
+.right {
+  text-align: right;
+}
+.tengah,
+.center {
+  text-align: center;
+}
 
 /* ================================================ */
 /* FLEX */
 /* ================================================ */
-.flexy{
-  display:flex;
+.flexy {
+  display: flex;
   flex-wrap: wrap;
   gap: 15px;
 }

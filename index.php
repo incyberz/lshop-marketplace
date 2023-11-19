@@ -17,12 +17,15 @@ session_start();
 # ================================================
 # DATA SESSION
 # ================================================
+$id_user = '';
 $is_login = 0;
 $id_role = 0; // pengunjung
+$sebagai = 'Pengunjung';
 $username = '';
 $nama_user = ''; 
 $email = ''; 
 $no_wa = ''; 
+$jumlah_item_keranjang = 0;
 
 if(isset($_SESSION['lshop_username'])){
   $is_login = 1;
@@ -44,6 +47,10 @@ include 'data_user.php';
 // echo '</pre>';
 // echo "<hr>Anda login sebagai $nama_user dg id-role : $id_role<hr>";
 
+# ================================================
+# INCLUDES
+# ================================================
+include 'include/insho_functions.php';
 
 # ================================================
 # PARAMETER PARSER
