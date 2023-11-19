@@ -16,7 +16,6 @@ $image_produk = '';
   <?php include 'produk_show.php'; ?>
   
   <!-- ADMIN ONLY -->
-  <div class="p-2 fitur-admin">
-    <?php include 'produk_add.php'; ?>
-  </div>
+  <?php if($id_role==2) include 'produk_add.php'; ?>
+
 </section>

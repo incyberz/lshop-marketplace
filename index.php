@@ -1,14 +1,11 @@
 <?php
+session_start();
 # ================================================
 # PHP INDEX
 # ================================================
-session_start();
-echo '<pre>';
-var_dump($_SESSION);
-echo '</pre>';
 
 // set auto login
-$_SESSION['lshop_username'] = 'admin';
+// $_SESSION['lshop_username'] = 'admin';
 
 // set logout
 // unset($_SESSION['lshop_username']);
@@ -20,6 +17,7 @@ $_SESSION['lshop_username'] = 'admin';
 # ================================================
 # DATA SESSION
 # ================================================
+$is_login = 0;
 $id_role = 0; // pengunjung
 $username = '';
 $nama_user = ''; 
@@ -27,6 +25,7 @@ $email = '';
 $no_wa = ''; 
 
 if(isset($_SESSION['lshop_username'])){
+  $is_login = 1;
   $username = $_SESSION['lshop_username'];
 }
 
@@ -35,8 +34,14 @@ if(isset($_SESSION['lshop_username'])){
 # KONEKSI KE MYSQL SERVER
 # ================================================
 include 'conn.php';
-include 'data_user.php';
 
+# ================================================
+# USER DATA IF LOGIN
+# ================================================
+include 'data_user.php';
+echo '<pre>';
+var_dump($_SESSION);
+echo '</pre>';
 echo "<hr>Anda login sebagai $nama_user dg id-role : $id_role<hr>";
 
 
