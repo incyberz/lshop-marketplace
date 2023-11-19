@@ -3,6 +3,10 @@
   padding:0
 }
 
+body{
+  background: linear-gradient(#efe,#dfd);
+}
+
 main {
   position: relative;
 }
@@ -77,8 +81,12 @@ main {
 /* ============================================ */
 /* RULE UNTUK SECTION */
 /* ============================================ */
+section{
+    min-height: 100vh;
+    background: white;
+}
 .section {
-  padding: 60px 0;
+  padding: 60px 15px;
   overflow: hidden;
   position: relative;
 }
