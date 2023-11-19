@@ -2,19 +2,43 @@
 # ================================================
 # PHP INDEX
 # ================================================
+session_start();
+echo '<pre>';
+var_dump($_SESSION);
+echo '</pre>';
+
+// set auto login
+$_SESSION['lshop_username'] = 'admin';
+
+// set logout
+// unset($_SESSION['lshop_username']);
+
+
+// include 'pages/login.php';
+
 
 # ================================================
-# DATA SESSION DUMMY
+# DATA SESSION
 # ================================================
-$id_role = 0; // pengunjung 
-$id_role = 1; // login as pembeli 
-$id_role = 2; // login as admin 
+$id_role = 0; // pengunjung
+$username = '';
+$nama_user = ''; 
+$email = ''; 
+$no_wa = ''; 
+
+if(isset($_SESSION['lshop_username'])){
+  $username = $_SESSION['lshop_username'];
+}
 
 
 # ================================================
 # KONEKSI KE MYSQL SERVER
 # ================================================
 include 'conn.php';
+include 'data_user.php';
+
+echo "<hr>Anda login sebagai $nama_user dg id-role : $id_role<hr>";
+
 
 # ================================================
 # PARAMETER PARSER
