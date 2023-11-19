@@ -1,6 +1,7 @@
-<h3>Fitur Admin | Tambah Produk</h3>
+<h3><span class='kecil abu'>Fitur Admin</span> | <span id=judul_fitur>Tambah Produk</span></h3>
 <?php if($_POST) include 'produk_add_handler.php'; ?>
 <form method="post" enctype="multipart/form-data">
+  <input type="hidden" name="id_produk" id="id_produk">
   <div class="form-group mb-2">
     <label for="nama_produk">Nama Produk</label>
     <input

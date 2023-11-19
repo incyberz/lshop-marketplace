@@ -27,8 +27,11 @@ if($jumlah_produk){
         $edit_hapus
         <img src='img/pakaian/$path_gender/$d[img_produk]' class='img-thumbnail img_produk'>
         <div>
-          <span class=nama_produk>$d[nama_produk]</span> ~ 
-          <span class=harga_rp>Rp$harga</span>
+          <span class=nama_produk id=nama_produk__$id>$d[nama_produk]</span> ~ 
+          <span class=harga_rp>
+            Rp
+            <span id=harga__$id>$harga</span>
+          </span>
         </div>
         <button class='btn btn-success btn-sm w-100 btn_keranjang'>Tambah ke Keranjang</button>
       </div>
@@ -52,12 +55,16 @@ echo !$jumlah_produk ? $item_produk : "<div class='produk_show wadah'>$item_prod
 ?><script>
   $(function(){
     let link_ajax = '';
+    let id_produk = '';
+    let nama_produk = '';
+    let harga = '';
 
     $('.manage_produk').click(function(){
       let tid = $(this).prop('id');
       let rid = tid.split('__');
       let aksi = rid[0];
-      let id_produk = rid[1];
+
+      id_produk = rid[1];
 
       console.log(aksi,id_produk);
 
@@ -65,21 +72,38 @@ echo !$jumlah_produk ? $item_produk : "<div class='produk_show wadah'>$item_prod
         let y = confirm('Yakin untuk menghapus produk ini?');
         if(!y) return;
         link_ajax = `ajax/hapus_produk.php?id_produk=${id_produk}`;
+        $.ajax({
+          url:link_ajax,
+          success: function(hasil){
+            if(hasil.trim()=='sukses'){
+              $('#item_produk__'+id_produk).fadeOut();
+            }else{
+              console.log(hasil);
+              alert('Terjadi kesalahan. Tidak bisa menghapus data.');
+            }
+          }
+        })
       }else if(aksi=='edit_produk'){
-        console.log('handler edit produk');
+        // console.log('handler edit produk');
+        $('.produk_show').slideUp();
+
+        // dapatkan data produk yang di klik
+        nama_produk = $('#nama_produk__'+id_produk).text();
+        harga = $('#harga__'+id_produk).text();
+        harga = harga.replace('.', ''); //replace titik pada ribuan
+        harga = harga.replace(',', ''); //replace koma pada ribuan
+        harga = parseInt(harga);
+        console.log(nama_produk, harga);
+
+        // set nama, harga, dan id pada form
+        $('#id_produk').val(id_produk)
+        $('#nama_produk').val(nama_produk)
+        $('#harga').val(harga)
+        $('#judul_fitur').text('Edit Produk')
+
+
       }
 
-      $.ajax({
-        url:link_ajax,
-        success: function(hasil){
-          if(hasil.trim()=='sukses'){
-            $('#item_produk__'+id_produk).fadeOut();
-          }else{
-            console.log(hasil);
-            alert('Terjadi kesalahan. Tidak bisa menghapus data.');
-          }
-        }
-      })
       
 
     })

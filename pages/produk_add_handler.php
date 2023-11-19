@@ -6,6 +6,7 @@ echo '</pre>';
 if(isset($_POST['btn_simpan'])){
   echo "Anda mengklik btn_simpan.<hr>Proses siap dilanjutkan ke penyimpanan database.<hr>";
   
+  $id_produk = $_POST['id_produk'];
   $nama_produk = $_POST['nama_produk'];
   $harga = $_POST['harga'];
   $gender = strtolower($_POST['gender']);
@@ -29,17 +30,27 @@ if(isset($_POST['btn_simpan'])){
   # ====================================================
   if(move_uploaded_file($file_asal,$file_tujuan)){
 
-    # ====================================================
-    # TAMBAH KE DATABASE PRODUK
-    # ====================================================
-    $s = "INSERT INTO tb_produk 
-    (nama_produk,harga,gender,img_produk) VALUES 
-    ('$nama_produk','$harga','$gender','$nama_file') 
-    ON DUPLICATE KEY UPDATE 
-    harga='$harga',
-    gender='$gender',
-    img_produk='$nama_file' 
-    ";
+    if($id_produk==''){
+      # ====================================================
+      # TAMBAH KE DATABASE PRODUK
+      # ====================================================
+      $s = "INSERT INTO tb_produk 
+      (nama_produk,harga,gender,img_produk) VALUES 
+      ('$nama_produk','$harga','$gender','$nama_file') 
+      ON DUPLICATE KEY UPDATE 
+      harga='$harga',
+      gender='$gender',
+      img_produk='$nama_file' 
+      ";
+    }else{
+      $s = "UPDATE tb_produk SET 
+      nama_produk = '$nama_produk', 
+      harga='$harga',
+      gender='$gender',
+      img_produk='$nama_file' 
+      WHERE id=$id_produk 
+      ";
+    }
 
     echo "<pre>$s</pre>";
     $q = mysqli_query($cn,$s) or die(mysqli_error($cn));
