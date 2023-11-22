@@ -6,18 +6,22 @@
   <div>
     <div class="alert alert-success"> 
       <?php
-      echo '<pre>';
-      var_dump($_POST);
-      echo '</pre>';
+      // echo '<pre>';
+      // var_dump($_POST);
+      // echo '</pre>';
       foreach ($_POST as $key => $value) {
         if(strpos("salt$key",'qty__')){
           $rkey = explode('__',$key);
           $id_keranjang = $rkey[1];
           $s = "UPDATE tb_keranjang SET sudah_checkout=1, tanggal_checkout=CURRENT_TIMESTAMP, qty=$value WHERE id=$id_keranjang";
-          echo "<pre>$s</pre>";
+          // echo "<pre>$s</pre>";
           $q = mysqli_query($cn,$s) or die(mysqli_error($cn));
         }
       }
+
+      $s = "INSERT INTO tb_checkout (id_user, nominal) VALUES ($id_user, $_POST[total_hidden])";
+      // echo "<pre>$s</pre>";
+      $q = mysqli_query($cn,$s) or die(mysqli_error($cn));
 
       $nominal = number_format($_POST['total_hidden'],0);
 

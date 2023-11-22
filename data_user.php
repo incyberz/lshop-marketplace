@@ -1,7 +1,7 @@
 <?php
 if($username!=''){
   $s = "SELECT a.*, 
-  (SELECT COUNT(1) FROM tb_keranjang WHERE id_user=a.id) jumlah_item_keranjang  
+  (SELECT COUNT(1) FROM tb_keranjang WHERE id_user=a.id AND sudah_checkout is null) jumlah_item_keranjang  
   FROM tb_user a  
   WHERE a.username='$username'";
   $q = mysqli_query($cn,$s) or die(mysqli_error($cn));

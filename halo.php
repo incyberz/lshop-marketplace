@@ -97,6 +97,8 @@ echo '<pre>';
 echo var_dump($arr_nama_hari);
 echo '</pre>';
 
+
+
 $weekday = date('w');
 
 echo "<br>Output foreach array nama_hari :";
